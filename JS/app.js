@@ -30,18 +30,6 @@ class UI {
     resetForm() {
         document.getElementById('product-form').reset();
     }
-
-    showMessage(message, cssClass) {
-        const div = document.createElement('div');
-        div.className = `alert alert-${cssClass} mt-2`;
-        div.appendChild(document.createTextNode(message));
-        const container = document.querySelector('.container');
-        const form = document.querySelector('#product-form');
-        container.insertBefore(div, form);
-        setTimeout(function() {
-            document.querySelector('.alert').remove();
-        }, 3000);
-    }
 }
 
 let subtotal = 0.00;
@@ -69,6 +57,5 @@ document.getElementById('product-form').addEventListener('submit', function(e) {
 
     ui.addProduct(product);
     ui.resetForm();
-    ui.showMessage('Producto agregado', 'success');
     ui.updateTotals(subtotal, iva, total);
 });
